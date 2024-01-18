@@ -19,7 +19,7 @@ from PIL import Image
 import warnings
 warnings.filterwarnings('ignore')
 
-#%% A DQN model
+#%%DQN model
 class DQNModel1: 
     def __init__(self, name=None, environment_name=None,eval_freq=20000, buffer_size=1000):
         self.name = name # name of the game
@@ -115,22 +115,17 @@ class DQNModel1:
 #initialize the agent and the environment
 Pacman_agent = DQNModel1(name="Pacman", environment_name="MsPacman-v0")
 
-
 #Play the pacman game randomly for 20 episodes
 Pacman_agent.execute_episodes(num_episodes=20)
      
-
 #train_agent 
-Pacman_agent.train_agent(time_steps=20000, stop_value=670)
-     
+Pacman_agent.train_agent(time_steps=20000, stop_value=670)   
 
 #evaluate the policy used by the agent
 Pacman_agent.policy(episodes=10)
      
-
 Pacman_agent.save_model()
      
-
 # test the agent 
 Pacman_agent.execute_episodes(num_episodes=10, game_mode="predict")
      
