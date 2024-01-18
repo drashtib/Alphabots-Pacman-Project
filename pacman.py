@@ -21,7 +21,19 @@ warnings.filterwarnings('ignore')
 
 #%%DQN model
 class DQNModel1: 
+    """A class representing the DQN model for playing Pacman."""
+    
     def __init__(self, name=None, environment_name=None,eval_freq=20000, buffer_size=1000):
+        """
+        Initialize the DQN model.
+
+        Parameters:
+        - name (str): Name of the game.
+        - environment_name (str): Environment name.
+        - eval_freq (int): Evaluation frequency.
+        - buffer_size (int): Buffer size for the replay buffer.
+        """
+        
         self.name = name # name of the game
         self.environment_name = environment_name# environment name
         self.eval_freq = eval_freq # evaluation frequency
@@ -33,17 +45,35 @@ class DQNModel1:
     
     #environment function
     def make_environment(self): 
+        """
+        Create the environment.
+
+        Returns:
+        - env: The created environment.
+        """
         env = gym.make(self.environment_name, render_mode="rgb_array") 
         return env 
 
     #DQN Model Function
-    def build_model(self): # A call to the function that builds the DQN model
+    def build_model(self):
+        """
+        Build the DQN model.
+
+        Returns:
+        - model: The built DQN model.
+        """
         model = DQN(CnnPolicy, self.env, verbose=0, 
                     tensorboard_log=self.log_path, buffer_size=self.buffer_size) 
         return model 
     
     #Single Episode function
     def execute_single_episode(self): 
+        """
+        Execute a single episode of the game.
+
+        Returns:
+        - score (float): The score achieved in the episode.
+        """
         obs, _ = self.env.reset() # resets the environment
         done = False # sets the done flag
         score = 0 
@@ -57,6 +87,13 @@ class DQNModel1:
 
     #Function to execute the episodes
     def execute_episodes(self, num_episodes=10, game_mode ="random"): 
+        """
+        Execute multiple episodes of the game.
+
+        Parameters:
+        - num_episodes (int): Number of episodes to execute.
+        - game_mode (str): Game mode ('random' or 'predict').
+        """
         if game_mode == "random": # if the game mode is random
           print(f"Playing the  random{self.name} game for {num_episodes} episodes") # prints the message
           scores = [self.execute_single_episode() for _ in range(num_episodes)] 
@@ -91,6 +128,13 @@ class DQNModel1:
 
     #Function to train agent
     def train_agent(self, time_steps=None, stop_value=None): 
+         """
+        Train the DQN agent.
+
+        Parameters:
+        - time_steps (int): Total training time steps.
+        - stop_value (int): Threshold to stop training.
+        """
         stop_callback = StopTrainingOnRewardThreshold(reward_threshold=stop_value, verbose=0) 
         eval_callback = EvalCallback(self.env, callback_on_new_best=stop_callback,
                                      eval_freq=self.eval_freq, best_model_save_path=self.save_path) 
@@ -98,17 +142,36 @@ class DQNModel1:
 
     #Policy function
     def policy(self, episodes=None): 
+        """
+        Evaluate the policy used by the agent.
+
+        Parameters:
+        - episodes (int): Number of episodes for evaluation.
+        """
         mean_reward, reward_std = evaluate_policy(self.model, self.env, n_eval_episodes=episodes) # evaluates the policy
         print(f"Average reward over {episodes} episodes is {mean_reward} with a standard deviation {reward_std}") 
 
     def best_model(self):
+        """
+        Load and return the best-trained model.
+
+        Returns:
+        - best_model: The best-trained DQN model.
+        """
         best_model = DQN.load(self.save_path + "/best_model")
         return best_model
 
     def save_model(self):
+        """
+        Save the current model.
+
+        Returns:
+        - saved_model: The saved DQN model.
+        """
         return self.model.save(self.save_path)
 
     def close_env(self): 
+        """Close the environment."""
         self.env.close() 
      
 #%%
