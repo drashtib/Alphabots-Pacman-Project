@@ -121,7 +121,7 @@ Pacman_agent.execute_episodes(num_episodes=20)
      
 
 #train_agent 
-Pacman_agent.train_agent(time_steps=100000, stop_value=1000)
+Pacman_agent.train_agent(time_steps=20000, stop_value=670)
      
 
 #evaluate the policy used by the agent
