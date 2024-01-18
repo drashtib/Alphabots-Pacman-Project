@@ -1,0 +1,44 @@
+
+Playing the Pacman game randomly for 20 episodes
+Episode 1: 200.0
+Episode 2: 160.0
+Episode 3: 170.0
+Episode 4: 220.0
+Episode 5: 220.0
+Episode 6: 120.0
+Episode 7: 210.0
+Episode 8: 230.0
+Episode 9: 300.0
+Episode 10: 140.0
+Episode 11: 250.0
+Episode 12: 190.0
+Episode 13: 300.0
+Episode 14: 200.0
+Episode 15: 180.0
+Episode 16: 160.0
+Episode 17: 170.0
+Episode 18: 210.0
+Episode 19: 170.0
+Episode 20: 130.0
+Eval num_timesteps=20000, episode_reward=210.00 +/- 0.00
+Episode length: 502.00 +/- 4.69
+New best mean reward!
+Eval num_timesteps=40000, episode_reward=210.00 +/- 0.00
+Episode length: 496.40 +/- 6.09
+Mean reward over 10 episodes is 210.0 with a standard deviation of 0.0
+Episode 1: 320.0
+Episode 2: 490.0
+Episode 3: 210.0
+Episode 4: 350.0
+Episode 5: 460.0
+Episode 6: 210.0
+Episode 7: 1700.0
+Episode 8: 210.0
+Episode 9: 440.0
+Episode 10: 320.0
+Moviepy - Building video C:\content\drive\MyDrive\Colab_Notebooks\my_atari_games\Saved_Models\DQN_Pacman_Model\Pacman_Agent_play/Pacman-agent-play-episode-0.mp4.
+Moviepy - Writing video C:\content\drive\MyDrive\Colab_Notebooks\my_atari_games\Saved_Models\DQN_Pacman_Model\Pacman_Agent_play/Pacman-agent-play-episode-0.mp4
+
+                                                                 Moviepy - Done !
+Moviepy - video ready C:\content\drive\MyDrive\Colab_Notebooks\my_atari_games\Saved_Models\DQN_Pacman_Model\Pacman_Agent_play/Pacman-agent-play-episode-0.mp4
+
