@@ -8,8 +8,8 @@ This repository contains a Deep Q-Network (DQN) model for playing the classic Pa
 ## Project Structure
 
 - `pacman.py`: Python script defining the DQNModel1 class.
-- 'Pacman-agent-play-0': video of agent playing the game
-- `editor logs`: File of saving log and model files.
+- 'Pacman-agent-play-0': Video of agent playing the game
+- `editor logs`: Results copied from the editor.
   
 
 ## Prerequisites
